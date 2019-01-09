@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+<script>
+    function Apple() {
+        this.weight = 10;
+        var self = this;
+        this.getWeight = function () {
+            return this.weight;
+        }
+        this.decreaseWeight = function () {
+            if(self.weight > 0){
+                self.weight--;
+            }
+        }
+        this.isEmpty = function () {
+            if(this.weight > 0){
+                console.log(this.weight);
+            }else {
+                console.log("")
+            }
+        }
+    }
+    function Human(name,gender,weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        var self = this;
+        this.getName = function () {
+            return this.name;
+        }
+        this.isMale=function () {
+            if(self.gender === 'male'){
+                self.name = "Adam";
+            }else {
+                self.name = "Eva";
+            }
+        }
+        this.getGender = function () {
+            return this.gender;
+        }
+        this.getWeight= function () {
+            return this.weight;
+        }
+        this.sayWords = function (text) {
+            console.log(text);
+        }
+        this.eatApple = function (apple) {
+            if(apple.weight) {
+                apple.decreaseWeight();
+                self.weight ++;
+            }
+        }
+        this.checkApple = function (apple) {
+            if(apple.weight>0){
+                document.write(apple.weight);
+            }
+        }
+    }
+    var apple = new Apple();
+    var human = new Human('name','male',50);
+    human.isMale();
+    human.eatApple(apple);
+    document.write(human.getName()+ '<br/>' + human.getGender() + '<br/>' + human.getWeight());
+</script>
+</body>
+</html>
